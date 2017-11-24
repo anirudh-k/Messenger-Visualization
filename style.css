@@ -2,6 +2,10 @@
   display: none;
 }
 
+.bar:hover {
+  fill: brown;
+}
+
 .title {
   font: bold 20px "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
