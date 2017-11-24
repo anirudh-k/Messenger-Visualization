@@ -61,7 +61,7 @@ d3.tsv("usage.tsv", function(d, i, columns) {
       .attr("class", "axis")
       .call(d3.axisLeft(y).ticks(null, "%"))
     .append("text")
-      .attr("x", 2)
+      .attr("x", 10)
       .attr("y", y(y.ticks().pop()) + 0.5)
       .attr("dy", "0.32em")
       .attr("fill", "#000")
