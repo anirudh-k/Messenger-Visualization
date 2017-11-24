@@ -18,13 +18,14 @@ for m in messages:
     word_count += len(text)
 
 for k in users:
-    users[k] = (100 * users[k][0] / message_count,
-                100 * users[k][1] / word_count)
+    users[k] = (users[k][0] / message_count, users[k][1] / word_count)
 
-sorted_users = sorted(users.items(), key=operator.itemgetter(1), reverse=True)
+sorted_users = sorted(users.iteritems())
 
 usage = open('usage.tsv', 'w')
 usage.write('%s\t%s\t%s\n' % ('User', 'Message Frequency', 'Word Frequency'))
 for user, (msg_pct, word_pct) in sorted_users:
-    usage.write('%s\t%.5f%%\t%.5f%%\n' % (user, msg_pct, word_pct))
+    if msg_pct < 0.0005:
+        continue
+    usage.write('%s\t%.5f\t%.5f\n' % (user, msg_pct, word_pct))
 usage.close()
