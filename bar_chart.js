@@ -1,5 +1,5 @@
 var svg = d3.select("svg"),
-    margin = {top: 70, right: 20, bottom: 50, left: 40},
+    margin = {top: 50, right: 20, bottom: 40, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -31,8 +31,8 @@ d3.tsv("usage.tsv", function(d, i, columns) {
 
   svg.append("text")
       .attr("class", "title")
-      .attr("x", x0(data[6]["User"]))
-      .attr("y", 25)
+      .attr("x", x0(data[5]["User"]))
+      .attr("y", 40)
       .text("Group Chat Activity by User");
 
   g.append("g")
