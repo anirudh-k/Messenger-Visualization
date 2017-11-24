@@ -13,6 +13,5 @@ with open('messages.txt') as messages:
                 'sender': sender,
                 'text': text
             })
-    messages_json = open('messages.json', 'w')
-    messages_json.write(json.dumps(data, indent=4))
-    messages_json.close()
+    with open('messages.json', 'w') as messages_json:
+        messages_json.write(json.dumps(data, indent=4))
