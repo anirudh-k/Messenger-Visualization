@@ -17,6 +17,13 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#ff8c00"]);
 
+var tool_tip = d3.tip()
+  .attr("class", "d3-tip")
+  .offset([-10, 0])
+  .html(function(d) { return "<span style='color:white'>" + (d.value * 100).toFixed(2) + "%</span>"; });
+
+svg.call(tool_tip);
+
 d3.tsv("usage.tsv", function(d, i, columns) {
   for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
   return d;
@@ -48,7 +55,9 @@ d3.tsv("usage.tsv", function(d, i, columns) {
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x1.bandwidth())
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("fill", function(d) { return z(d.key); });
+      .attr("fill", function(d) { return z(d.key); })
+      .on("mouseover", tool_tip.show)
+      .on("mouseout", tool_tip.hide);
 
   g.append("g")
       .attr("class", "axis")
