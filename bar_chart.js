@@ -69,14 +69,6 @@ d3.tsv("usage.tsv", function(d, i, columns) {
   g.append("g")
       .attr("class", "axis")
       .call(d3.axisLeft(y).ticks(null, "%"))
-    .append("text")
-      .attr("x", 10)
-      .attr("y", y(y.ticks().pop()) + 0.5)
-      .attr("dy", "0.32em")
-      .attr("fill", "#000")
-      .attr("font-weight", "bold")
-      .attr("text-anchor", "start")
-      .text("Frequency");
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")

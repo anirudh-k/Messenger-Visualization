@@ -23,7 +23,7 @@ for k in users:
 sorted_users = sorted(users.iteritems())
 
 usage = open('usage.tsv', 'w')
-usage.write('%s\t%s\t%s\n' % ('User', 'Message Frequency', 'Word Frequency'))
+usage.write('%s\t%s\t%s\n' % ('User', 'Message Share', 'Word Share'))
 for user, (msg_pct, word_pct) in sorted_users:
     if msg_pct < 0.0005:
         continue
